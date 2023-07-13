@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import Footer from "./components/Footer";
 import Form from "./components/Form";
 import Header from "./components/Header";
+import Todo from "./components/Todo";
 
 function App() {
   useEffect(() => {
@@ -11,6 +12,7 @@ function App() {
     <div className="App">
       <Header />
       <Form />
+      <Todo />
       <Footer />
     </div>
   );
