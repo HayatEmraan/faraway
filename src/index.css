@@ -5,6 +5,7 @@
   color: #5a3e2b;
   font-family: "Quicksand", sans-serif;
   font-weight: 500;
+  box-sizing: border-box;
 }
 .App {
   width: 100%;
@@ -78,6 +79,38 @@ select,
   gap: 3.2rem;
   align-items: center;
 }
+.todo-list {
+  list-style: none;
+  width: 65vw;
+  overflow: scroll;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  gap: 1.2rem;
+  justify-content: center;
+  align-content: start;
+}
+.todo-list li {
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.6rem;
+}
+.todo-list li h4 {
+  color: white;
+}
+.todo-list li input[type="checkbox"] {
+  cursor: pointer;
+  height: 1.3rem;
+  width: 1.3rem;
+  accent-color: #e5771f;
+}
+.todo-list li button {
+  background-color: #5a3e2b;
+  border: none;
+  cursor: pointer;
+  font-size: 1.3rem;
+}
 .bottom-stats {
   display: flex;
   gap: 2rem;
@@ -90,9 +123,12 @@ select,
   font-weight: 700;
   margin: 0 0.8rem;
 }
-.actions-button{
+.actions-button {
   background-color: #ffebb3;
   cursor: pointer;
   border: none;
   border-radius: 10rem;
+}
+.todo-item{
+  text-decoration: line-through;
 }
