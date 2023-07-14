@@ -9,6 +9,7 @@ function App() {
     document.title = "Far away - Exploring";
   }, []);
   const [listPackages, setListPackages] = useState([]);
+  const [checkedData, setCheckedData] = useState([]);
   const handleSubmit = (e) => {
     e.preventDefault();
     const middle = e.target;
@@ -26,10 +27,13 @@ function App() {
   const handleCheckboxChange = (event, id) => {
     listPackages.find((item) => item.id === id).checked = true;
     const filterItems = listPackages.filter((item) => item);
+    const handlePacked = listPackages.filter((item) => item.checked === true);
+    setCheckedData(handlePacked);
     setListPackages(filterItems);
   };
   const handleDelete = (id) => {
     setListPackages(listPackages.filter((item) => item.id !== id));
+    setCheckedData(checkedData.filter((item) => item.id !== id));
   };
   const handleRemove = () => {
     const confirmed = window.confirm(
@@ -37,6 +41,7 @@ function App() {
     );
     if (confirmed) {
       setListPackages([]);
+      setCheckedData([]);
     } else {
       return;
     }
@@ -51,7 +56,7 @@ function App() {
         handleDelete={handleDelete}
         handleRemove={handleRemove}
       />
-      <Footer />
+      <Footer listPackages={listPackages} checkedData={checkedData} />
     </div>
   );
 }
